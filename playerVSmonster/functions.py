@@ -28,7 +28,7 @@ def go_cave(player: Player):
         show_player_weapons(player)
         index_weapon = int(input("Seleccione un arma para luchar: "))
         weapon = player.get_selected_weapon(index_weapon - 1)
-        if cave.Fight(player, monster, weapon) == False:
+        if cave.Fight(player, monster, weapon) == False:  
             validate_player(player)
     
     #si el jugador tiene salud le mostramos los monstruos y lo dejamos que elija uno para pelear
@@ -69,74 +69,7 @@ def go_cave(player: Player):
         print("\nNo tienes suficiente salud.\n")
 
 
-
-
 ################################################################################################################################################################################################################
-
-
-
-
-
-    ##comento esta funcion porque asi la habia hecho yo, se la pase a chat gpt y me la optimizo, me gustó como lo hizo y lo entiendo
-    #pero por las dudas no borro la funcion que hice yo, la dejo comentada, con esa funcion andaba todo a la perfeccion.
-
-# def go_cave(player:Player):
-#     while True:
-#         if player.get_health() > 0:
-#             initialize_monsters()
-#             print("\n-------------------Arena-------------------\n")
-#             print(f"{cave}\n")
-#             index = 0
-#             #Le mostramos la lista de monstruos
-#             for monster in monsters:
-#                 print(f"{index + 1}-{monster}")
-#                 index += 1
-#             index_monster = int(input("Seleccione un monstruo o 0 para salir: "))
-#             #en index monster nos guardamos la opcion que selecciona el jugador, esta opcion si le restamos 1 es el indice del monstruo
-#             if index_monster == 1:
-#                 monster_selected = monsters[index_monster - 1]
-#                 show_player_weapons(player)
-                
-#                 index_weapon = int(input("Seleccione un arma para luchar: "))
-#                 weapon = player.get_selected_weapon(index_weapon - 1)
-#                 if cave.Fight(player, monster_selected, weapon) == False:
-#                     validate_player(player)
-#             elif index_monster == 2:
-#                 #si el juugador elige la opcion 2, estaria eligiendo al monstruo en el indice 1, en nuestro caso seria el monstruo fanged_beast, entonces validamos que primero haya vencido al
-#                 # monstruo en el indice 0, que en nuestro caso seria el slime, para seleccionar el slime, como el jugador eligio la opcion 2, lo que hacemos es restarle 2 y asi accedemos al indice 0
-#                 #y lo guardamos en una variable llamada monster_last
-#                 monster_last = monsters[index_monster - 2]
-#                 #preguntamos si el mosnter_last esta en la lista de monstruos vencidos del jugador
-#                 if validate_monster(monster_last, player):
-#                     monster_selected = monsters[index_monster - 1]
-#                     show_player_weapons(player)
-#                     index_weapon = int(input("Seleccione un arma para luchar: "))
-#                     weapon = player.get_selected_weapon(index_weapon - 1)
-#                     if cave.Fight(player, monster_selected, weapon) == False:
-#                         validate_player(player)
-#             elif index_monster == 3:
-#                 monster_last = monsters[index_monster - 2]
-#                 if validate_monster(monster_last, player):
-#                     monster_selected = monsters[index_monster - 1]
-#                     show_player_weapons(player)
-                    
-#                     index_weapon = int(input("Seleccione un arma para luchar: "))
-#                     weapon = player.get_selected_weapon(index_weapon - 1)
-#                     if cave.Fight(player, monster_selected, weapon) == False:
-#                         validate_player(player)
-#                     else:
-#                         print(f"\nFelicitaciones {player.get_name()} has vencido al monstruo final!\n")
-#                         menu_lose_win(player)
-#             elif index_monster == 0:
-#                 break
-#             else:
-#                 print("\nOpción incorrecta.")
-#         else:
-#             print("\nNo tienes suficiente salud.\n")
-#             break
-
-
-
 
 
 ################################################################################################################################################################################################################
@@ -147,7 +80,7 @@ def go_cave(player: Player):
 
 
 #esta funcion es igual a la que usamos para validar armas
-# lo que hacemos aca es preguntar si el jugador vemcio el monstruo que le estamos pasando por parametro
+#lo que hacemos aca es preguntar si el jugador vencio el monstruo que le estamos pasando por parametro
 #el monstruo que le pasamos por parametro es en realidad el monstruo anterior al que el jugador eligio
 #esto para validar que si quiere pelear con cierto monstruo, primero haya vencido al anterior
 def validate_monster(monster:Monster, player:Player):

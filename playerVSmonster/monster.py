@@ -10,7 +10,7 @@ class Monster:
     def __str__(self):
         return f"Monstruo: {self.__name}\nNivel: {self.__level}\nSalud: {self.__health}\n"
     
-    def getMonsterAttackValue(self, xp):
+    def getMonsterAttackValue(self, xp): #segun el nivel y exp que tenga el jugador va a realizar el ataque exitoso o no
         hit = (self.__level * 5) - (math.floor(random.random() * xp))
         if hit > 0:
             return hit
